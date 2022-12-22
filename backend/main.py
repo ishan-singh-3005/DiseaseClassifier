@@ -1,6 +1,5 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 import classifier
-from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
@@ -9,7 +8,6 @@ app = FastAPI()
 @app.get("/heart")
 async def create_item(Smoking, AlcoholDrinking, Stroke, DiffWalking, Sex, AgeCategory, Race, Diabetic, PhysicalActivity, GenHealth, Asthma, KidneyDisease, SkinCancer):
     (field_names, field_values, target_name, target_values, counts, P) = classifier.train("heart/train.csv")
-    # print(Race)
     data = {
         "Smoking": Smoking,
         "AlcoholDrinking": AlcoholDrinking,
@@ -27,8 +25,30 @@ async def create_item(Smoking, AlcoholDrinking, Stroke, DiffWalking, Sex, AgeCat
     }
     return classifier.classify(data, P, target_name, target_values)[0]
 
-@app.post("/diabetes")
-async def create_item(request: Request):
+@app.get("/diabetes")
+async def create_item(HighBP, HighChol, CholCheck, BMI, Smoker, Stroke, HeartDiseaseorAttack, PhysActivity, Fruits, Veggies, HvyAlcoholConsump, AnyHealthcare, NoDocbcCost, GenHlth, MentHlth, PhysHlth, DiffWalk, Sex, Age, Education, Income):
     (field_names, field_values, target_name, target_values, counts, P) = classifier.train("diabetes/train.csv")
-    a = await request.json()
-    return classifier.classify(a, P, target_name, target_values)[0]
+    data = {
+        "HighBP":HighBP,
+        "HighChol":HighChol,
+        "CholCheck":CholCheck,
+        "BMI":BMI,
+        "Smoker":Smoker,
+        "Stroke":Stroke,
+        "HeartDiseaseorAttack":HeartDiseaseorAttack,
+        "PhysActivity":PhysActivity,
+        "Fruits":Fruits,
+        "Veggies":Veggies,
+        "HvyAlcoholConsump":HvyAlcoholConsump,
+        "AnyHealthcare":AnyHealthcare,
+        "NoDocbcCost":NoDocbcCost,
+        "GenHlth":GenHlth,
+        "MentHlth":MentHlth,
+        "PhysHlth":PhysHlth,
+        "DiffWalk":DiffWalk,
+        "Sex":Sex,
+        "Age":Age,
+        "Education":Education,
+        "Income":Income
+    }
+    return classifier.classify(data, P, target_name, target_values)[0]

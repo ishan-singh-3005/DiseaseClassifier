@@ -117,10 +117,10 @@ Usage: naieveBayes.py
 ''')
         sys.exit(1)
     
-    (field_names, field_values, target_name, target_values, counts, P) = train("backend/heart/train.csv")
-    report_counts(counts, "backend/heart/counts.csv")
-    report_probabilities(P, "backend/heart/probabilities.csv")
-    test(target_name, target_values, P, "backend/heart/test.csv", "backend/heart/out.csv")
+    (field_names, field_values, target_name, target_values, counts, P) = train("backend/diabetes/train.csv")
+    report_counts(counts, "backend/diabetes/counts.csv")
+    report_probabilities(P, "backend/diabetes/probabilities.csv")
+    test(target_name, target_values, P, "backend/diabetes/test.csv", "backend/diabetes/out.csv")
     print(field_values)
 
     data = {
@@ -138,6 +138,6 @@ Usage: naieveBayes.py
         "KidneyDisease": "No",
         "SkinCancer": "No"
     }
-    print(field_names)
+    print(field_values)
 
     # print(classify(data, P, target_name, target_values)[0])
