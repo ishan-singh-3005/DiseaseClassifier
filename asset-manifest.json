@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/DiseaseClassifier/static/css/main.9bc699a4.css",
+    "main.js": "/DiseaseClassifier/static/js/main.5e086dda.js",
+    "static/js/787.c1112931.chunk.js": "/DiseaseClassifier/static/js/787.c1112931.chunk.js",
+    "index.html": "/DiseaseClassifier/index.html",
+    "main.9bc699a4.css.map": "/DiseaseClassifier/static/css/main.9bc699a4.css.map",
+    "main.5e086dda.js.map": "/DiseaseClassifier/static/js/main.5e086dda.js.map",
+    "787.c1112931.chunk.js.map": "/DiseaseClassifier/static/js/787.c1112931.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9bc699a4.css",
+    "static/js/main.5e086dda.js"
+  ]
+}
