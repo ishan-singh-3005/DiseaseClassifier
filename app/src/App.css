@@ -1,4 +1,44 @@
-.dark-theme {
-  background-color: #333333;
-  color: #ffffff;
+.App{
+  padding-top: 2%;
+  background-image: linear-gradient(#0e1752, #000524, black);
+  position:absolute;
+  height: 100%;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.nav{
+  background-color: transparent;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.navbuttons{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: white;
+  font-size: 30px;
+  font-weight: 200;
+  background-color: transparent;
+  text-decoration: none;
+  border: solid;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-color: yellow;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #ff7700;
+}
+
+@media screen and (max-width: 800px) {
+  button{
+      font-size: 25px;
+  }
 }

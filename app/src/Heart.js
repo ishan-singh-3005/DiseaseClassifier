@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import './Heart.css'
+var ReactRotatingText = require('react-rotating-text');
 
 export default function Heart() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [answersU, setAnswersU] = useState({});
   const [result, setResult] = useState("");
+  const [submit, setSubmit] = useState("Submit");
   const [loading, setLoading] = useState(false);
-
+  const [called, setCalled] = useState(false);
 
   const questions = [
     {
@@ -77,11 +81,14 @@ export default function Heart() {
 
   const handleAnswer = async (selectedChoice) => {
     setAnswers({ ...answers, [questions[currentQuestion].id]: selectedChoice });
+    setAnswersU({ ...answersU, [questions[currentQuestion].text]: selectedChoice });
     setCurrentQuestion(currentQuestion + 1);
   }
 
   async function handleSubmit(){
+    setCalled(true);
     setLoading(true);
+    setSubmit("Loading ...")
     console.log(answers)
     var url = "heart?";
     for (var param in answers){
@@ -101,34 +108,51 @@ export default function Heart() {
   console.log(data);
   setResult(data);
   setLoading(false);
+  setSubmit('Done');
   }
 
   return (
-    <div>
+    <div className='section'>
       <h1>Heart</h1>
-      {currentQuestion < questions.length ? (
+      {!called ? (
+      currentQuestion < questions.length ? (
         <div>
-          <h2>{questions[currentQuestion].text}</h2>
+          <h2 className='question'>{questions[currentQuestion].text}</h2>
+          <div className='choice-box'>
           {questions[currentQuestion].choices.map((choice, index) => (
-            <button key={index} onClick={() => handleAnswer(choice)}>
+            <button className='choices' key={index} onClick={() => handleAnswer(choice)}>
               {choice}
             </button>
           ))}
         </div>
+        </div>
       ) : (
         <div>
-          <h2>Survey finished</h2>
-          <p>Your answers:</p>
-          <pre>{JSON.stringify(answers, null, 2)}</pre>
+          <h2 className='question'>Survey finished</h2>
+          <h2 className='prompt'>Your answers:</h2>
+          <pre className='final-answers'>{JSON.stringify(answersU, null, 2)}</pre>
 
-          <h2>Click submit to view your results</h2>
-          <button onClick={handleSubmit}>Submit</button>
-          {loading && (
-        <p>The machine learning models are analzying the data...</p>
-        )}
-          <h3>{result}</h3>
+          <button className='submit' onClick={handleSubmit}>{submit}</button>
+        
+        </div>
+      )
+      ) : (
+        <div>
+          {loading ? (
+            <div>
+            <h2 className='prompt'>The machine learning models are analzying the data <ReactRotatingText items={["...", "..."]}/></h2>
+            <img src='background.gif'/>
+            </div>
+            ) : (
+              <div>
+                <h2 className='question'> Here is your result:</h2>
+                <h2 className='prompt'>{result}</h2>
+              </div>
+            )}
+            
         </div>
       )}
+
     </div>
   );
 };

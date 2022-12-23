@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import classifier
-
+import time
 
 app = FastAPI()
 
@@ -23,6 +23,7 @@ async def create_item(Smoking, AlcoholDrinking, Stroke, DiffWalking, Sex, AgeCat
         "KidneyDisease": KidneyDisease,
         "SkinCancer": SkinCancer
     }
+    time.sleep(5)
     return classifier.classify(data, P, target_name, target_values)[0]
 
 @app.get("/diabetes")
@@ -51,4 +52,5 @@ async def create_item(HighBP, HighChol, CholCheck, BMI, Smoker, Stroke, HeartDis
         "Education":Education,
         "Income":Income
     }
+    time.sleep(5)
     return classifier.classify(data, P, target_name, target_values)[0]

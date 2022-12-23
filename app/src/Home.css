@@ -1,0 +1,27 @@
+.section{
+    display: block;
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+h1{
+    color: rgb(215, 90, 40);
+    font-size: 70px;
+    margin-top: 0;
+}
+
+.taglines{
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 5%;
+ }
+
+ .prompt{
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+ }

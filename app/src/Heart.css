@@ -1,0 +1,40 @@
+.question{
+    font-size: 30px;
+    font-weight: 200;
+    color: white;
+    border-bottom: 2px solid yellow;
+}
+
+.choices{
+    font-size: 25px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+.choice-box{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.submit{
+    font-size: 30px;
+    background-color: green;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+.final-answers{
+    color: white;
+    font-size: 20px;
+    flex-wrap: wrap;
+}
+
+img{
+    width: 250px;
+}
+  
+
