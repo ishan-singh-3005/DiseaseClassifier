@@ -28,7 +28,8 @@ export default function Quiz(props) {
     setCalled(true);
     setLoading(true);
     setSubmit("Loading ...")
-    var url = "http://127.0.0.1:8000/" + props.name.toLowerCase() + "?";
+    console.log(answers);
+    var url = "https://gnu0os.deta.dev/" + props.name.toLowerCase() + "?";
     for (var param in answers){
       url = url + param + "=" + answers[param].replaceAll(' ', "+") + "&"
     }
@@ -37,7 +38,7 @@ export default function Quiz(props) {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Headers": "*"
      }
-    let response = await fetch(url, { 
+    let response = await fetch(url.slice(0, url.length - 1), { 
       method: "GET",
       headers: headersList
     });
@@ -84,7 +85,7 @@ export default function Quiz(props) {
               {loading ? (
                 <div>
                 <h2 className='prompt'>The machine learning models are analzying the data <ReactRotatingText items={["...", "..."]}/></h2>
-                <img src='background.gif'/>
+                <img src='background.gif' alt='background'/>
                 </div>
                 ) : (
                   <div>
