@@ -121,7 +121,6 @@ Usage: naieveBayes.py
     report_counts(counts, "backend/diabetes/counts.csv")
     report_probabilities(P, "backend/diabetes/probabilities.csv")
     test(target_name, target_values, P, "backend/diabetes/test.csv", "backend/diabetes/out.csv")
-    print(field_values)
 
     data = {
         "Smoking": "Yes",
@@ -138,6 +137,6 @@ Usage: naieveBayes.py
         "KidneyDisease": "No",
         "SkinCancer": "No"
     }
-    print(field_values)
+    # print(field_values)
 
     # print(classify(data, P, target_name, target_values)[0])

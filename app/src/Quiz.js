@@ -28,7 +28,6 @@ export default function Quiz(props) {
     setCalled(true);
     setLoading(true);
     setSubmit("Loading ...")
-    console.log(answers)
     var url = "http://127.0.0.1:8000/" + props.name.toLowerCase() + "?";
     for (var param in answers){
       url = url + param + "=" + answers[param].replaceAll(' ', "+") + "&"
