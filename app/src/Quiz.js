@@ -69,6 +69,7 @@ export default function Quiz(props) {
                 </button>
               ))}
             </div>
+              <h2 className='prompt'>{questions[currentQuestion].prompt}</h2>
             </div>
           ) : (
             <div>

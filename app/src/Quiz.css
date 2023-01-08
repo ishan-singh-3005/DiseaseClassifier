@@ -5,6 +5,12 @@
     border-bottom: 2px solid yellow;
 }
 
+.prompt{
+    font-size: 30px;
+    font-weight: 200;
+    color: white;
+}
+
 .choices{
     font-size: 25px;
     background: black;
