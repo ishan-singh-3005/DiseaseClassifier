@@ -7,7 +7,7 @@ export default function Quiz(props) {
   const [answers, setAnswers] = useState({});
   const [answersU, setAnswersU] = useState({});
   const [result, setResult] = useState("");
-  const [submit, setSubmit] = useState("Submit");
+  const [submit, setSubmit] = useState("Get results");
   const [loading, setLoading] = useState(false);
   const [called, setCalled] = useState(false);
   const [started, setStarted] = useState(false);
@@ -74,8 +74,8 @@ export default function Quiz(props) {
           ) : (
             <div>
               <h2 className='question'>Survey finished</h2>
-              <h2 className='prompt'>Your answers:</h2>
-              <pre className='final-answers'>{JSON.stringify(answersU, null, 2)}</pre>
+              {/* <h2 className='prompt'>Your answers:</h2>
+              <pre className='final-answers'>{JSON.stringify(answersU, null, 2)}</pre> */}
     
               <button className='submit' onClick={handleSubmit}>{submit}</button>
             
@@ -90,9 +90,16 @@ export default function Quiz(props) {
                 </div>
                 ) : (
                   <div>
-                    <h2 className='question'> Here is your result:</h2>
+                    <h2 className='question'>Here is your result:</h2>
                     <h2 className='prompt'>{result}</h2>
                   </div>
+                )}
+                {props.name === "Diabetes" ? (
+                  <div>
+                    <h2 className='prompt'>0=no diabetes, 1=Prediabetes or Diabetes</h2>
+                    </div>
+                ): (
+                  <div></div>
                 )}
                 
             </div>
